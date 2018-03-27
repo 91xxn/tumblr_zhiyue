@@ -372,16 +372,29 @@
 
 
 
-
-
+{block:Pagination}
 <nav class="navigation pagination" role="navigation">
 <h2 class="screen-reader-text">文章导航</h2>
-<div class="nav-links"><span class='page-numbers current'>1</span>
-<a class='page-numbers' href='http://www.91xxn.com/page/2/'>2</a>
+<div class="nav-links">
+{block:PreviousPage}
+<a href="{PreviousPage}">{lang:Previous page}</a>
+{/block:PreviousPage}
+{block:JumpPagination length="5"}
+{block:CurrentPage}
+<span class="page-numbers current">{PageNumber}</span>
+{/block:CurrentPage}
+{block:JumpPage}
 <span class="page-numbers dots">&hellip;</span>
-<a class='page-numbers' href='http://www.91xxn.com/page/9/'>9</a>
-<a class="next page-numbers" href="http://www.91xxn.com/page/2/">下页</a></div>
+<a class="page-numbers" href="{URL}">{PageNumber}</a>
+{/block:JumpPage}
+{/block:JumpPagination}
+{block:NextPage}
+<a class="next page-numbers" href="{NextPage}">{lang:Next page}</a>
+{/block:NextPage}
+</div>
 </nav>
+{/block:Pagination}
+
 </div><!-- #Psot-list end -->
 
 </div><!-- #zuoce end-->
@@ -397,27 +410,23 @@
 </div>
 
 <div class="Card widget">
-    {block:Likes}
-        <div id="likes_container">
-        <h2>Stuff I like</h2>
-
-        {Likes limit="5" summarize="100" width="150"}
-
-        <a href="http://www.tumblr.com/liked/by/{Name}">
-        See more stuff I like
-        </a>
-        </div>
-    {/block:Likes}
+{block:Likes}
+    <h3 class="title">{lang:Stuff I like}</h3>
+    {Likes limit="5" summarize="100" width="150"}
+    <a href="http://www.tumblr.com/liked/by/{Name}">{lang:See more stuff I like}</a>
+{/block:Likes}
 </div>
 
 <div class="Card widget">
 {block:Following}
-    Blogs I follow:
-    <ul>{block:Followed}
-            <li>
-                <img src="{FollowedPortraitURL-48}"/>
-                <a href="{FollowedURL}">{FollowedName}</a>
-            </li>{/block:Followed}
+<h3 class="title">{lang:People I follow}</h3>
+    <ul>
+    {block:Followed}
+        <li>
+        <img src="{FollowedPortraitURL-48}"/>
+        <a href="{FollowedURL}">{FollowedName}</a>
+        </li>
+    {/block:Followed}
     </ul>
 {/block:Following}
 </div>
