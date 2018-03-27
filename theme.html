@@ -1,302 +1,217 @@
 <html>
-    <head>
-        <meta charset="utf-8" />
-        <meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1" />
-        <meta name="renderer" content="webkit" />
-        <meta name="force-rendering" content="webkit" />
-        <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
-        <link href="https://cdn.bootcss.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet">
-        <script src="https://cdn.bootcss.com/jquery/3.2.1/jquery.min.js"></script>
-        <script src="https://cdn.bootcss.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1" />
+    <meta name="renderer" content="webkit" />
+    <meta name="force-rendering" content="webkit" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+    <link href="https://cdn.bootcss.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet">
+    <script src="https://cdn.bootcss.com/jquery/3.2.1/jquery.min.js"></script>
+    <script src="https://cdn.bootcss.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
 
-        <title>{Title}</title>
-        <link rel="shortcut icon" href="{Favicon}">
-        <link rel="alternate" type="application/rss+xml" href="{RSS}">
-        {block:Description}
-            <meta name="description" content="{MetaDescription}" />
-        {/block:Description}
+    <title>{Title}</title>
 
-        <style type="text/css">
-        body{font-family:"Helvetica Neue",Helvetica,Arial,sans-serif;font-size:15px;color:#333;background-color:#f3f3f3}
+    {block:Hidden}
+    <!-- Theme Options -->
+    <meta name="color:Background Color" content="#f3f3f3" />
+    {/block:Hidden}
+    <link rel="shortcut icon" href="{Favicon}">
+    <link rel="alternate" type="application/rss+xml" href="{RSS}">
+    {block:Description}
+    <meta name="description" content="{MetaDescription}" />
+    <meta name="text:Welcome Message" content="欢迎光临本站！" />
+    {/block:Description}
 
-.Card {
-  margin-bottom: 10px;
-  padding: 15px 20px;
-  background-color: #fff;
-  border-radius: 3px;
-  box-shadow: 0 1px 3px rgba(0,0,0,.1);
-  overflow: hidden;
-}
+    <style type="text/css">
+    body{font-size:15px;background-color:#f3f3f3;}
+    a:hover,a:focus{text-decoration:none;}
 
-/* bootstrap 优化 */
-
-ol>pre {margin-top: 10px;}
-
-hr { border-top-color: #ccc; }
-
-.alert a{font-weight:bold}
-.alert-success a{color:#2b542c}
-.alert-info a{color:#245269}
-.alert-warning a{color:#66512c}
-.alert-danger a{color:#843534}
-.alert pre{margin-top: 5px;margin-bottom: 0;}
-
-/*** 定制优化 ***/
-.thumbnail{background-color:#fff;}
-.img-thumbnail{background-color:#fff;}
-/*---------------------------------------------*/
-
-/* 标题 .title 定义 */
-h3.title { font-size: 18px;margin-top: 10px; }
-.title>a { color: #333; }
-.title>a:hover { color: #2375be; }
-
-.App-article .title { font-weight: 700; }
-#Blog-sidebar .title {
-  line-height: 32px;
-  padding-left: 12px;
-  border-left: 5px solid #f57e42;
-}
-
-/*顶部 Header*/
-#Blog-header,
-#Blog-footer {
-  width: 100%;
-  background-color: #fff;
-}
-#Blog-header {
-  border-bottom: 1px solid #ccc;
-  box-shadow: 0 1px 3px 0 #ccc;
-}
-#Blog-footer {
-  border-top: 1px solid #ccc;
-  box-shadow: 0 -1px 3px 0 #ccc;
-}
-#Blog-footer.Card { margin-bottom: 0; }
-
-#Blog-main {
-  margin-top: 10px;
-  margin-bottom: 10px;
-}
+    .avatar{width:100px;margin: 0 auto;display:block;border-radius:50%;}
 
 
-/* 顶部导航菜单 */
-.navbar { margin-bottom: 0; }
+.container{padding-left:5px;padding-right:5px}
+.row{margin-left:-5px;margin-right:-5px}
 
-.navbar-brand { font-size: 24px; }
-.navbar-nav { font-size: 16px; }
+.navbar-collapse{padding-right:5px;padding-left:5px;}
+.navbar-brand{padding:15px 5px;}
 
-.current-menu-item,
-.current-post-parent,
-.current-menu-parent { background-color: #e7e7e7; }
+/* ----------------------------------------------------------------------- */
 
-#menu-header { margin: 5px 0; }
+    embed {max-width: 100%;border: 1px solid #ccc;}
+    .Card {margin-bottom: 10px;padding: 15px 20px;background-color: #fff;border-radius: 3px;box-shadow: 0 1px 3px rgba(0,0,0,.1);overflow: hidden;}
 
-.navbar-default {
-  border: 0;
-  background-color: transparent;
-}
+    /* bootstrap 优化 */
+    ol>pre {margin-top: 10px;}
 
-/* 面包屑导航 */
-#blog-breadcrumb .breadcrumb {
-  margin: 0;
-  padding: 0;
-  background-color: transparent;
-}
+    hr { border-top-color: #ccc; }
 
-/* 左侧 */
-#zuoce { overflow: hidden; }
-.Post-guanggao {
-  margin-bottom: 10px;
-  border-radius: 3px;
-  overflow: hidden;
-}
+    .alert a{font-weight:bold}
+    .alert-success a{color:#2b542c}
+    .alert-info a{color:#245269}
+    .alert-warning a{color:#66512c}
+    .alert-danger a{color:#843534}
+    .alert pre{margin-top: 5px;margin-bottom: 0;}
 
-.Post-guanggao img {
-  width: 100%;
-  transition: all 0.8s;
-}
-.Post-guanggao a:hover img,
-.excerpt a:hover img { transform: scale(1.08); }
+    /*** 定制优化 ***/
+    .thumbnail{background-color:#fff;}
+    .img-thumbnail{background-color:#fff;}
+    /*---------------------------------------------*/
 
-/* 博客文章列表 */
-.Psot-list{}
-.Psot-list .breadcrumb {
-  margin: 0;
-  padding: 0;
-  color: #8590a6;
-  background-color: transparent;
-}
-.Psot-list .breadcrumb a { color: #8590a6; }
-.Psot-list .breadcrumb a:hover { color: #2375be; }
-/*摘要部分*/
-.excerpt {
-  margin-top: 10px;
-  line-height: 24px;
-}
-.excerpt a {
-  padding: 5px 0;
-  font-style: italic;
-}
-.excerpt a:hover { color: #777; }
+    /* 标题 .title 定义 */
+    h3.title { font-size: 18px;margin-top: 10px; }
+    .title>a { color: #333; }
+    .title>a:hover { color: #2375be; }
 
-.excerpt-thumbnail {
-  margin-right: 10px;
-  margin-bottom: 10px;
-  width:100%;
-  height:auto;
-  overflow: hidden;
-  border-radius: 4px;
-}
-@media ( min-width: 768px ){
-.excerpt-thumbnail {
-  margin-bottom: 0;
-  width: 220px;
-  height: 150px;
-}
-}
-.excerpt-thumbnail img {
-  transition: all 0.5s;
-  width: 100%;
-  height: 100%;
-}
+    .App-article .title { font-weight: 700; }
+    #Blog-sidebar .title {line-height: 32px;padding-left: 12px;border-left: 5px solid #f57e42;}
+
+    /*顶部 Header*/
+    #Blog-header,
+    #Blog-footer {width: 100%;background-color: #fff;}
+    #Blog-header {border-bottom: 1px solid #ccc;box-shadow: 0 1px 3px 0 #ccc;}
+    #Blog-footer {border-top: 1px solid #ccc;box-shadow: 0 -1px 3px 0 #ccc;}
+    #Blog-footer.Card { margin-bottom: 0; }
+
+    #Blog-main {margin-top: 10px;margin-bottom: 10px;}
+
+    /* 顶部导航菜单 */
+    .navbar { margin-bottom: 0; }
+
+    .navbar-brand { font-size: 24px; }
+    .navbar-nav { font-size: 16px; }
+
+    .current-menu-item,
+    .current-post-parent,
+    .current-menu-parent { background-color: #e7e7e7; }
+
+    #menu-header { margin: 5px 0; }
+
+    .navbar-default {border: 0;background-color: transparent;}
+
+    /* 面包屑导航 */
+    #blog-breadcrumb .breadcrumb {margin: 0;padding: 0;background-color: transparent;}
+
+    /* 左侧 */
+    #zuoce { overflow: hidden; }
+    .Post-guanggao {margin-bottom: 10px;border-radius: 3px;overflow: hidden;}
+
+    .Post-guanggao img {width: 100%;transition: all 0.8s;}
+    .Post-guanggao a:hover img,
+
+
+    /* 博客文章列表 */
+    .Psot-list{}
+    .Psot-list .breadcrumb {margin: 0;padding: 0;color: #8590a6;background-color: transparent;}
+    .Psot-list .breadcrumb a { color: #8590a6; }
+    .Psot-list .breadcrumb a:hover { color: #2375be; }
+
+    /* 文章 */
+    .App-article .caption p{text-indent:2em;}
+
+    /*摘要部分*/
+    .excerpt-thumbnail {margin-right: 10px;margin-bottom: 10px;width:100%;height:auto;overflow: hidden;border-radius: 4px;}
+    @media ( min-width: 768px ){
+    .excerpt-thumbnail {margin-bottom: 0;width: 220px;height: 150px;}
+    }
+    .excerpt-thumbnail img {transition: all 0.5s;width: 100%;height: 100%;}
 
 
 
 
-/* 文章正文属性 */
-.text>table {
-  margin-top: 10px;
-  margin-bottom: 10px;
-}
-.table-roww td:nth-child(odd),
-.table-roww th:nth-child(odd) { background-color: #f3f3f3; }  /** 奇数列 **/
-.table-roww td:nth-child(even),
-.table-roww th:nth-child(even) { background-color: #fff; }  /** 偶数列 **/
+    /* 文章正文属性 */
+    .text {margin-top: 10px;line-height: 24px;}
+    .text a {padding: 5px 0;font-style: italic;}
+    .text a:hover { color: #777; }
+    .text a:hover img { transform: scale(1.08); }
 
-.text { overflow: hidden; }
+    .text>table {margin-top: 10px;margin-bottom: 10px;}
+    .table-roww td:nth-child(odd),
+    .table-roww th:nth-child(odd) { background-color: #f3f3f3; }  /** 奇数列 **/
+    .table-roww td:nth-child(even),
+    .table-roww th:nth-child(even) { background-color: #fff; }  /** 偶数列 **/
 
-.text img {
-  max-width: 100%;
-}
-.text img+img { margin-top: 10px; }
+    .text { overflow: hidden; }
+    .text ul{padding-left:2em;}
+    .text img {max-width: 100%;}
+    .text img+img { margin-top: 10px; }
 
-.text>h3 {
-  line-height: 32px;
-  padding-left: 12px;
-  border-left: 5px solid #2375be;
-}
-.text>h3 { font-size: 24px; }
-.text>h4 {
-  color: #090;
-}
-.text>p{text-indent:2em;}
-.text>embed {
-  margin: 10px auto;
-}
-q { quotes: "“" "”" "‘" "’"; }
-
-
-.text>.row{margin-left:0;margin-right:0;}
-.text .thumbnail{background-color:transparent;}
-
-/* 搜索结果  */
-.search_query{color:#fab;}
-
-img+.article_foot{margin-top:15px;}
-.article_foot li{float:left;}
-.article_foot li+li{margin-left:10px;}
-.article_foot{list-style: none;}
-
-/* 侧边栏 */
-#Blog-sidebar ul { padding: 0; }
-
-#Blog-sidebar li {
-  float: left;
-  width: 100%;
-  line-height: 24px;
-  list-style: none;
-  white-space: nowrap;
-  overflow: hidden;
-  text-overflow: ellipsis;
-}
-@media ( min-width: 768px ){
-#Blog-sidebar li { width: 50%; }
-.related li { padding-right: 10px; }
-}
-@media ( min-width: 992px ){
-#Blog-sidebar li { width: 100%; }
-}
-#Blog-sidebar li>a:before { content: "» "; }
-
-#Blog-sidebar .thumbnail img{
-  width: 100%;
-}
+    .text>h3 {line-height: 32px;padding-left: 12px;border-left: 5px solid #2375be;}
+    .text>h3 { font-size: 24px; }
+    .text>h4 {color: #090;}
+    .text>p{text-indent:2em;}
+    .text>embed {margin: 10px auto;}
+    q { quotes: "“" "”" "‘" "’"; }
 
 
 
-/* 自定义网格 */
-.col-xxn-1,.col-xxn-2,.col-xxn-3,.col-xxn-4,.col-xxn-5,.col-xxn-6,.col-xxn-7,.col-xxn-8,.col-xxn-9,.col-xxn-10 {
-  position: relative;
-  min-height: 1px;
-  padding-left: 5px;
-  padding-right: 5px;
-}
-
-@media ( min-width: 992px ) {
-.col-xxn-1,.col-xxn-2,.col-xxn-3,.col-xxn-4,.col-xxn-5,.col-xxn-6,.col-xxn-7,.col-xxn-8,.col-xxn-9,.col-xxn-10 { float: left; }
-.col-xxn-10 { width: 100%; }
-.col-xxn-9  { width: 90%; }
-.col-xxn-8  { width: 80%; }
-.col-xxn-7  { width: 70%; }
-.col-xxn-6  { width: 60%; }
-.col-xxn-5  { width: 50%; }
-.col-xxn-4  { width: 40%; }
-.col-xxn-3  { width: 30%; }
-.col-xxn-2  { width: 20%; }
-.col-xxn-1  { width: 10%; }
-}
+    /* 图片帖子 */
+    img+.caption{margin-top:15px;}
 
 
+    .text>.row{margin-left:0;margin-right:0;}
+    .text .thumbnail{background-color:transparent;}
 
-/** 分页导航 **/
-.pagination {
-  margin-left: 20px;
-  margin-bottom: 10px;
-}
-.pagination a,
-.pagination a:visited,
-.pagination .current,
-.pagination .dots,
-#page-links span {
-  float: left;
-  background-color: #fff;
-  margin: 0 5px 0 0;
-  padding: 8px 12px;
-  line-height: 100%;
-  border: 1px solid #ebebeb;
-  border-radius: 3px;
-}
-.pagination .current,
-.pagination a:hover,
-#page-links>span,
-#page-links>a:hover>span {
-  background-color: #0088cc;
-  color: #fff;
-  border: 1px solid #0088cc;
-}
-.screen-reader-text {
-  display: none;
-}
+    /* 搜索结果  */
+    .search_query{color:#fab;}
 
-            {CustomCSS}
-        </style>
-    </head>
+    img+.article_foot{margin-top:15px;}
+    .article_foot li{float:left;}
+    .article_foot li+li{margin-left:10px;}
+    .article_foot{list-style: none;}
 
-    <body>
-    <div id="Blog-wrapper">
-        <header id="Blog-header">
-<div class="container" id="Blog-header-inner">
+    /* 侧边栏 */
+    #Blog-sidebar ul { padding: 0; }
+
+    #Blog-sidebar li {float: left;width: 100%;line-height: 24px;list-style: none;white-space: nowrap;overflow: hidden;text-overflow: ellipsis;}
+    @media ( min-width: 768px ){
+    #Blog-sidebar li { width: 50%; }
+    .related li { padding-right: 10px; }
+    }
+    @media ( min-width: 992px ){
+    #Blog-sidebar li { width: 100%; }
+    }
+    #Blog-sidebar li>a:before { content: "» "; }
+
+    #Blog-sidebar .thumbnail img{width: 100%;}
+
+    /* 自定义网格 */
+    .col-xxn-1,.col-xxn-2,.col-xxn-3,.col-xxn-4,.col-xxn-5,.col-xxn-6,.col-xxn-7,.col-xxn-8,.col-xxn-9,.col-xxn-10 {position: relative;min-height: 1px;padding-left: 5px;padding-right: 5px;}
+
+    @media ( min-width: 992px ) {
+    .col-xxn-1,.col-xxn-2,.col-xxn-3,.col-xxn-4,.col-xxn-5,.col-xxn-6,.col-xxn-7,.col-xxn-8,.col-xxn-9,.col-xxn-10 { float: left; }
+    .col-xxn-10 { width: 100%; }
+    .col-xxn-9  { width: 90%; }
+    .col-xxn-8  { width: 80%; }
+    .col-xxn-7  { width: 70%; }
+    .col-xxn-6  { width: 60%; }
+    .col-xxn-5  { width: 50%; }
+    .col-xxn-4  { width: 40%; }
+    .col-xxn-3  { width: 30%; }
+    .col-xxn-2  { width: 20%; }
+    .col-xxn-1  { width: 10%; }
+    }
+
+    /** 分页导航 **/
+    .pagination {margin-left: 20px;margin-bottom: 10px;}
+    .pagination a,
+    .pagination a:visited,
+    .pagination .current,
+    .pagination .dots,
+    #page-links span {float: left;background-color: #fff;margin: 0 5px 0 0;padding: 8px 12px;line-height: 100%;border: 1px solid #ebebeb;border-radius: 3px;}
+    .pagination .current,
+    .pagination a:hover,
+    #page-links>span,
+    #page-links>a:hover>span {background-color: #0088cc;color: #fff;border: 1px solid #0088cc;}
+    .screen-reader-text {display: none;}
+
+    {CustomCSS}
+    </style>
+</head>
+
+<body>
+<div id="Blog-wrapper">
+<header id="Blog-header">
+    <div class="container" id="Blog-header-inner">
 
 <nav class="row navbar navbar-default" role="navigation">
 <div class="navbar-header">
@@ -312,7 +227,7 @@ img+.article_foot{margin-top:15px;}
 <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
 
 <ul id="" class="nav navbar-nav">
-<li class="current-menu-item"><a href="{BlogURL}">首页</a></li>
+<li{block:HomePage} class="current-menu-item"{/block:HomePage}><a href="{BlogURL}">{lang:Home}</a></li>
 
 {block:SubmissionsEnabled}
 <li><a href="{BlogURL}submit">{SubmitLabel}</a></li>
@@ -336,7 +251,7 @@ img+.article_foot{margin-top:15px;}
 </div>
 </nav>
 
-</div><!-- #Blog-header-inner end -->
+    </div><!-- #Blog-header-inner end -->
 </header><!-- #Blog-header end -->
 
 <main class="container" id="Blog-main">
@@ -344,164 +259,175 @@ img+.article_foot{margin-top:15px;}
 
 <div id="zuoce" class="col-xxn-7">
 
-<div class="Card" id="blog-breadcrumb"><ul class="breadcrumb"><a href="/" rel="bookmark" target="_blank">欢迎光临本站！</a></ul></div><!-- #blog-breadcrumb end -->
+{block:IndexPage}
+{block:IfWelcomeMessage}
+<div class="Card" id="blog-breadcrumb"><ul class="breadcrumb"><a href="/" rel="bookmark" target="_blank">{text:Welcome Message}</a></ul></div>
+{/block:IfWelcomeMessage}
+{/block:IndexPage}
+
+<!-- #blog-breadcrumb end -->
 
 <div  id="posts" class="Psot-list">
 
-            {block:SearchPage}
-                <article class="Card">
-                	<h3>
-                    {lang:Search results for SearchQuery 2}
-                    </h3>
-                    {block:NoSearchResults}
-                    <div class="post-content">
-                    {lang:Sorry no search results found}
-                    </div>
-                    {/block:NoSearchResults}
-                </article>
-            {/block:SearchPage}
+    {block:SearchPage}
+    <article class="Card">
+    	<h3>
+        {lang:Search results for SearchQuery 2}
+        </h3>
+        {block:NoSearchResults}
+        <div class="post-content">
+        {lang:Sorry no search results found}
+        </div>
+        {/block:NoSearchResults}
+    </article>
+    {/block:SearchPage}
 
+    {block:Posts}
+    <article class="App-article Card">
+    {block:Text}
+        {block:Title}
+        <h3 class="title"><a href="{Permalink}">{Title}</a></h3>
+        {/block:Title}
+        
+        {block:HasTags}
+        <ul class="breadcrumb">标签：
+        		{text:and tagged}
+    				{block:Tags}
+        <li><a href="{TagURL}">{Tag}</a></li>
+        {/block:Tags}
+        </ul>
+        {/block:HasTags}
+        <div class="text clearfix">
+        {Body}
+        </div>
+    {/block:Text}
 
-            {block:Posts}
-            <article class="App-article Card">
-            {block:Text}
-                        {block:Title}
-                            <h3 class="title"><a href="{Permalink}">{Title}</a></h3>
-                        {/block:Title}
-                    
-                    {block:HasTags}
-                    <ul class="breadcrumb">标签：
-                        		{text:and tagged}
-                				{block:Tags}
-                                <li><a href="{TagURL}">{Tag}</a></li>
-                                {/block:Tags}
-                    </ul>
-                    {/block:HasTags}
-                    <div class="excerpt clearfix">
-                    {Body}
-                    </div>
-            {/block:Text}
+    {block:Photo}
+        <img src="{PhotoURL-500}" alt="{PhotoAlt}"/>
 
-            {block:Photo}
-                        <img src="{PhotoURL-500}" alt="{PhotoAlt}"/>
+        {block:Caption}
+        <div class="caption">{Caption}</div>
+        {/block:Caption}
+    {/block:Photo}
+    {block:Panorama}
+        {LinkOpenTag}
+        <img src="{PhotoURL-Panorama}" alt="{PhotoAlt}"/>
+        {LinkCloseTag}
+        {block:Caption}
+        <div class="caption">{Caption}</div>
+        {/block:Caption}
+    {/block:Panorama}
+    {block:Photoset}
+        {Photoset-500}
+        {block:Caption}
+        <div class="caption">{Caption}</div>
+        {/block:Caption}
+    {/block:Photoset}
 
-                        {block:Caption}
-                            <div class="caption">{Caption}</div>
-                        {/block:Caption}
-            {/block:Photo}
-            {block:Panorama}
-                        {LinkOpenTag}
-                            <img src="{PhotoURL-Panorama}" alt="{PhotoAlt}"/>
-                        {LinkCloseTag}
-                        {block:Caption}
-                            <div class="caption">{Caption}</div>
-                        {/block:Caption}
-            {/block:Panorama}
-            {block:Photoset}
-                        {Photoset-500}
-                        {block:Caption}
-                            <div class="caption">{Caption}</div>
-                        {/block:Caption}
-            {/block:Photoset}
+    {block:Quote}
+        "{Quote}"
 
-            {block:Quote}
-                        "{Quote}"
+        {block:Source}
+        <div class="source">{Source}</div>
+        {/block:Source}
+    {/block:Quote}
+    {block:Link}
+        <a href="{URL}" class="link" {Target}>{Name}</a>
 
-                        {block:Source}
-                            <div class="source">{Source}</div>
-                        {/block:Source}
-            {/block:Quote}
-            {block:Link}
-                        <a href="{URL}" class="link" {Target}>{Name}</a>
+        {block:Description}
+        <div class="description">{Description}</div>
+        {/block:Description}
+    {/block:Link}
+    {block:Chat}
+        {block:Title}
+        <h3><a href="{Permalink}">{Title}</a></h3>
+        {/block:Title}
 
-                        {block:Description}
-                            <div class="description">{Description}</div>
-                        {/block:Description}
-            {/block:Link}
-            {block:Chat}
-                        {block:Title}
-                            <h3><a href="{Permalink}">{Title}</a></h3>
-                        {/block:Title}
-
-                        <ul class="chat">
-                            {block:Lines}
-                                <li class="{Alt} user_{UserNumber}">
-                                    {block:Label}
-                                        <span class="label">{Label}</span>
-                                    {/block:Label}{Line}
-                                </li>
-                            {/block:Lines}
-                        </ul>
-            {/block:Chat}
-            {block:Video}
-                        {Video-500}{block:Caption}
-                            <div class="caption">{Caption}</div>
-                        {/block:Caption}
-            {/block:Video}
-            {block:Audio}
-                        {AudioEmbed}{block:Caption}
-                            <div class="caption">{Caption}</div>
-                        {/block:Caption}
-            {/block:Audio}
+        <ul class="chat">
+        {block:Lines}
+        <li class="{Alt} user_{UserNumber}">
+            {block:Label}
+            <span class="label">{Label}</span>
+            {/block:Label}{Line}
+        </li>
+        {/block:Lines}
+        </ul>
+    {/block:Chat}
+    {block:Video}
+        {Video-500}{block:Caption}
+        <div class="caption">{Caption}</div>
+        {/block:Caption}
+    {/block:Video}
+    {block:Audio}
+        {AudioEmbed}{block:Caption}
+        <div class="caption">{Caption}</div>
+        {/block:Caption}
+    {/block:Audio}
 <ul class="article_foot">
-<li>{ReblogButton}</li>
-<li>{LikeButton}</li>
+<li>{ReblogButton color="blue"}</li>
+<li>{LikeButton color="blue"}</li>
 </ul>
-            </article>
-            {/block:Posts}
+    </article>
+    {/block:Posts}
 
 
 
 
 
-	<nav class="navigation pagination" role="navigation">
-		<h2 class="screen-reader-text">文章导航</h2>
-		<div class="nav-links"><span class='page-numbers current'>1</span>
+<nav class="navigation pagination" role="navigation">
+<h2 class="screen-reader-text">文章导航</h2>
+<div class="nav-links"><span class='page-numbers current'>1</span>
 <a class='page-numbers' href='http://www.91xxn.com/page/2/'>2</a>
 <span class="page-numbers dots">&hellip;</span>
 <a class='page-numbers' href='http://www.91xxn.com/page/9/'>9</a>
 <a class="next page-numbers" href="http://www.91xxn.com/page/2/">下页</a></div>
-	</nav>
+</nav>
 </div><!-- #Psot-list end -->
 
 </div><!-- #zuoce end-->
 
 <aside class="col-xxn-3" id="Blog-sidebar">
 
-
-<div class="Card widget"><h3 class="title">推荐文章</h3>
-<ul>
-<li><a href="http://www.91xxn.com/article/liuyao-anliushen.html" title="六爻装卦：安六神的方法">六爻装卦：安六神的方法</a></li>
-<li><a href="http://www.91xxn.com/article/bazi-duanyingqi.html" title="四柱八字断应期秘法">四柱八字断应期秘法</a></li>
-<li><a href="http://www.91xxn.com/article/mingli-shanhun.html" title="命理看哪种类型的人最适合闪婚">命理看哪种类型的人最适合闪婚</a></li>
-<li><a href="http://www.91xxn.com/article/bootstrap-3-css-button.html" title="Bootstrap 3 全局 CSS 样式 &#8211; 按钮">Bootstrap 3 全局 CSS 样式 &#8211; 按钮</a></li>
-<li><a href="http://www.91xxn.com/article/qimen-zhuanye-mingzi.html" title="奇门遁甲专业名词解释">奇门遁甲专业名词解释</a></li>
-<li><a href="http://www.91xxn.com/article/lanlanluan-taohua.html" title="滥桃花烂桃花与乱桃花">滥桃花烂桃花与乱桃花</a></li>
-<li><a href="http://www.91xxn.com/article/16jinzhi-yansedaima.html" title="16 进制颜色代码大全">16 进制颜色代码大全</a></li>
-<li><a href="http://www.91xxn.com/article/8fa-huajie-bujucai.html" title="八法化解“不聚财”">八法化解“不聚财”</a></li>
-<li><a href="http://www.91xxn.com/article/shouxiang-9dacaifuwen.html" title="手相上的九大财富纹">手相上的九大财富纹</a></li>
-<li><a href="http://www.91xxn.com/article/bazi-aiduoshen.html" title="八字看另一半究竟爱你有多深">八字看另一半究竟爱你有多深</a></li>
-</ul>
-
+<div class="Card widget">
+<img src="{PortraitURL-128}" class="avatar">
+<hr />
+{block:Description}
+<p>{Description}</p>
+{/block:Description}
 </div>
+
+<div class="Card widget">
+    {block:Likes}
+        <div id="likes_container">
+        <h2>Stuff I like</h2>
+
+        {Likes limit="5" summarize="100" width="150"}
+
+        <a href="http://www.tumblr.com/liked/by/{Name}">
+        See more stuff I like
+        </a>
+        </div>
+    {/block:Likes}
+</div>
+
+<div class="Card widget">
+{block:Following}
+    Blogs I follow:
+    <ul>{block:Followed}
+            <li>
+                <img src="{FollowedPortraitURL-48}"/>
+                <a href="{FollowedURL}">{FollowedName}</a>
+            </li>{/block:Followed}
+    </ul>
+{/block:Following}
+</div>
+
 </aside><!-- #Blog-sidebar end-->
 </div><!-- .row-->
 </main><!-- #Blog-main end -->
 
 
-
-
-
-        <p id="footer">
-            {block:PreviousPage}
-                <a href="{PreviousPage}">&#171; Previous</a>
-            {/block:PreviousPage}{block:NextPage}
-                <a href="{NextPage}">Next &#187;</a>
-            {/block:NextPage}
-
-        </p>
-        
-        <footer id="Blog-footer" class="Card">
+<footer id="Blog-footer" class="Card">
 <div class="container">
 
 <p>Copyright &copy; 2017 <strong>91 指月</strong>.</p>
@@ -511,7 +437,7 @@ img+.article_foot{margin-top:15px;}
 </div>
 </footer><!-- #Blog-footer end -->
 
-        </div><!-- #Blog-wrapper end -->
+</div><!-- #Blog-wrapper end -->
 
-    </body>
+</body>
 </html>
